@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	is index;
+	Simple Sign:Hello World!
 </body>
 </html>
