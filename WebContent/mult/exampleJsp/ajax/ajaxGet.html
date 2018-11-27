@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>get()方法</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+    <style type="text/css">
+            div,span{
+                width: 140px;
+                height: 140px;
+                margin: 20px;
+                background: #9999CC;
+                border: #000 1px solid;
+                float:left;
+                font-size: 17px;
+                font-family:Roman;
+            }
+            
+            div.mini{
+                width: 30px;
+                height: 30px;
+                background: #CC66FF;
+                border: #000 1px solid;
+                font-size: 12px;
+                font-family:Roman;
+            }
+            
+            div.visible{
+                display:none;
+            }
+     </style>
+     <!--引入jquery的js库-->
+    
+    </head>
+     
+    <body>
+        <form action="" name="form1" id="form1">
+            <input type="text" name="username" id="username" value="zhang"><br>
+            <input type="text" name="psw" id="psw" value="99999"><br>
+            <input type="button" id="b1" value="登陆">
+        </form>
+        
+        <div id="one">
+        </div>
+        
+    </body>
+<script language="JavaScript">
+   $(function(){
+        $("#b1").click(function(){
+//          /*
+//           * $.get(url,data,callback,type)
+//           *  * url:请求路径
+//           *  * data:请求参数,格式是key/value
+//           *  * callback:回调函数,function(data, textStatus){}
+//           *      * data:请求返回的数据内容,可以是HTML代码、XML片段或JSON格式等
+//           *      * textStatus:请求的状态,其值是success、error、notmodify、timeout等
+//           *      * 返回值:XMLHttpRequest对象
+//           *  * type:返回内容格式，xml, html, script, json, text, _default。
+//           * 
+//           * $.get()方法的请求类型一定是GET方式
+//           */
+//          var json = {
+//              username : $("#username").val(),
+//              psw : $("#psw").val()
+//          }
+//          
+//          $.get("get.jsp",json,function(data, textStatus){
+//              //直接接收服务器端的响应数据格式为JSON格式
+//              console.info(data);
+//              
+//              //var json = eval("("+data+")");
+//              //console.info(json);
+//          });
+            
+            /*
+             * $.post(url,data,callback,type)
+             *  * url:请求路径
+             *  * data:请求参数,格式是key/value
+             *  * callback:回调函数,function(data, textStatus){}
+             *      * data:请求返回的数据内容,可以是HTML代码、XML片段或JSON格式等
+             *      * textStatus:请求的状态,其值是success、error、notmodify、timeout等
+             *      * 返回值:XMLHttpRequest对象
+             *  * type:返回内容格式，xml, html, script, json, text, _default。
+             * 
+             * $.post()方法的请求类型一定是POST方式
+             */
+//          var json = {
+//              username : $("#username").val(),
+//              psw : $("#psw").val()
+//          }
+            
+            //序列化元素
+            var json = {
+                username:"aaa",
+                psw:"123"
+            };
+            
+            $.get("/MyAlpha/mult/exampleJsp/ajax/ajaxGet.jsp",json,function(data,textStatus){
+                console.info(eval("("+data+")"));
+                console.info(textStatus);
+            },"text");
+            //},"xml");
+           
+        });
+   });
+</script>
+</html>
+

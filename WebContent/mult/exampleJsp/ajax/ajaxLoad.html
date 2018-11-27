@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>load()方法</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../../js/jquery-1.9.1.js">
+        </script>
+        <style type="text/css">
+            div, span {
+                width: 140px;
+                height: 140px;
+                margin: 20px;
+                background: #9999CC;
+                border: #000 1px solid;
+                float: left;
+                font-size: 17px;
+                font-family: Roman;
+            }
+            
+            div.mini {
+                width: 30px;
+                height: 30px;
+                background: #CC66FF;
+                border: #000 1px solid;
+                font-size: 12px;
+                font-family: Roman;
+            }
+            
+            div.visible {
+                display: none;
+            }
+        </style>
+        <!--引入jquery的js库-->
+    </head>
+    <body>
+        <form action="" name="form1" id="form1">
+            <input type="text" name="username" id="username" value="zhang">
+            <br>
+            <input type="text" name="psw" id="psw" value="99999">
+            <br>
+            <input type="button" id="b1" value="登陆">
+        </form>
+        <div id="one">
+        </div>
+    </body>
+    <script language="JavaScript">
+        $(function(){
+            $("#b1").click(function(){
+                /*
+                 * $(expr).load(url,data,callback)
+                 *  * url:请求路径,绝对路径或相对路径
+                 *  * data:请求参数,格式必须是key/value格式
+                 *  * callback:回调函数,function(data, textStatus, XMLHttpRequest){}
+                 *      * data:代表请求返回内容
+                 *      * textStatus:代表请求状态,值可能为: succuss, error, notmodify, timeout 4 种
+                 *      * XMLHttpRequest对象
+                 * 
+                 * jQuery中封装Ajax操作
+                 * 
+                 * load()方法的请求类型:
+                 *  * (默认情况下)在没有向服务器端发送请求数据的时候,load()方法的请求类型就是GET方式
+                 *  * 在向服务器端发送了请求数据的时候，load()方法的请求类型就是POST方法
+                 * load()方法的问题:
+                 *  * load()不能自定义请求类型,而是由是否向服务器端发送请求数据
+                 *  * load()不能自定义数据交换格式,只能使用文本(HTML)格式
+                 */
+                //var formDate = $("form").serialize(); //get提交
+                var formDate = {username:"tt"};   //post提交
+                $(this).load("/MyAlpha/mult/exampleJsp/ajax/ajaxLoad.jsp",formDate,function(data,textState,xhr){
+                   console.info(data);
+                   console.info(textState);
+                   console.info(xhr);
+                });
+                
+            });
+        });
+    </script>
+</html>

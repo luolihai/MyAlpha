@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studens>
+	<studen>
+		<name>张三</name>
+		<age>22</age>
+		<weight>125.5</weight>
+	</studen>
+	<studen>
+		<name>李四</name>
+		<age>28</age>
+		<weight>130</weight>
+	</studen>
+</studens>

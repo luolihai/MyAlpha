@@ -1,0 +1,25 @@
+﻿10:26 2016/6/3
+
+
+
+*规则
+	Connection conn = getConn();
+		String sql = "inrrsert into tab1(descript) values(?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		JDBCTest.class.getResource("")
+		ps.setBinaryStream(parameterIndex, x, length);
+		ResultSet result = ps.executeQuery();
+		if (result.next()) {
+			InputStream in = result.getBinaryStream(1);
+			byte[] by = new byte[1024];
+			int index = -1;
+			while ((index = in.read(by)) != -1) {
+				out.write(by, 0, index);
+			}
+			in.close();
+		}
+		out.close();
+		conn.close();
+	
+
+

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>弹幕测试</title>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script src="flytext.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$(".showBarrage,.s_close").click(function() {
+					$(".barrage,.s_close").toggle("slow");
+				});
+				//init_animated();
+			});
+		</script>
+		
+		
+		<link href="flytext.css" rel="stylesheet">
+		
+		
+		
+		
+	</head>
+
+	<body>
+
+		<a href="#" class="showBarrage">打开弹幕</a>
+
+		<div class="barrage">
+			<div class="screen">
+				<a href="#" class="s_close">X</a>
+				<div class="mask">
+					<!--内容在这里显示-->
+				</div>
+			</div>
+			<!--Send Begin-->
+			<div class="send">
+				<input type="text" class="s_text"/>
+				<input type="button" class="s_btn" value="说两句"/>
+			</div>
+			<!--Send End-->
+			<span class="s_close">X</span>
+		</div>
+	</body>
+</html>
